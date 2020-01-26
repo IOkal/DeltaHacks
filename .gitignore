@@ -1,0 +1,3 @@
+#ignore the .csv file with the AWS credentials
+AWS/accessKeys.csv
+
