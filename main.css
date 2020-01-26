@@ -40,7 +40,24 @@
 }
 
 
-.navbar-brand img {
+#logo {
     width:20%;
-    height: 50px;
+    height: 80px;
+}
+
+#TimeScales {
+	max-width: 100%;
+	height:auto;
+	
+}
+
+#PercentConfused {
+max-width: 200%;
+	height:auto;
+	padding-top: 200px;
+}
+
+
+#video{
+	margin-top: 100px;
 }

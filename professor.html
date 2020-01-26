@@ -8,34 +8,128 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-
-  </style>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MyNavbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class=navbar-brand href="#"><img src="img/w3newbie.png"></a>
+            <a class=navbar-brand href="#"><img src="lectur.png" class="img-fluid"></a>
           </div>
-          <div class="collapse navbar-coll" id="MyNavbar">
-            <ul class="nav navbar-nav navbar right">
-              <li class="active"><a href="#">Professor's View</a></li>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">Go to Professor's View</a></li>
             </ul>
           </div>
-          <div class="collapse navbar-collapse" id="MyNavbar">
-              <ul class="nav navbar-nav navbar right">
-                  <li class="active"><a href="#">Professor's View</a></li>
-              </ul>
-          </div>
       </div>
+
+
+<script>
+function display_graph(id, label, data) {
+var ctx = document.getElementById(id);
+var data = {
+    labels: data.labels,
+    datasets: [
+        {
+            label: label,
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderWidth: 1,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: data.assay_value,
+            spanGaps: false
+        }
+    ]
+};
+
+//options
+var options = {
+    responsive: true,
+    title: {
+        display: true,
+        position: "top",
+        text: label,
+        fontSize: 18,
+        fontColor: "#111"
+    },
+    legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+            fontColor: "#333",
+            fontSize: 16
+        }
+    }
+};
+var Blanks_Chart=null;
+Blanks_Chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: options
+});}
+
+
   </nav>
 
+display_graph.call (id, label, data); 
+
+
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["January", "February"],
+    datasets: [{
+      label: 'Dataset 1',
+      borderColor: window.chartColors.blue,
+      borderWidth: 2,
+      fill: false,
+      data: [2, 10]
+    }]
+  },
+  options: {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Chart.js Draw Line On Chart'
+    },
+    tooltips: {
+      mode: 'index',
+      intersect: true
+    },
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value: 5,
+        borderColor: 'rgb(75, 192, 192)',
+        borderWidth: 4,
+        label: {
+          enabled: false,
+          content: 'Test label'
+        }
+      }]
+    }
+  }
+});
 
 
 
@@ -44,27 +138,7 @@
 
 
 
-
-
-
-
-
-
- <!--- Check out w3newbie Templates & Courses! 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
- <div style="float:left; max-width: 48%; margin: .5rem; padding: 0; border: .5rem solid #666;">
-  <a href="https://w3newbie.com/templates/" target="_blank" style="z-index: 100; cursor: pointer!important;"><img src="https://www.w3newbie.com/wp-content/uploads/w3newbie-templates-zip.png" style="max-width: 100%; min-width: 100%;"></a>
-</div>
- <div style="float:left; max-width: 48%; margin: .5rem; padding: 0; border: .5rem solid #666;">
-  <a href="https://w3newbie.com/courses/" target="_blank" style="z-index: 100; cursor: pointer!important;"><img src="https://www.w3newbie.com/wp-content/uploads/w3newbie-courses-zip.png" style="max-width: 100%; min-width: 100%;"></a>
-</div>
-<br style="clear: both;">
-<div style="max-width: 52%; margin: 2rem auto; padding: 0; border: .5rem solid #666;">
-  <a href="https://w3newbie.com/hosting/" target="_blank" style="z-index: 100; cursor: pointer!important;"><img src="https://www.w3newbie.com/wp-content/uploads/web-hosting-zip.jpg" style="max-width: 100%; min-width: 100%;"></a>
-</div>
-  Check out w3newbie Templates & Courses! -->
-
-
+</script>
 
 </body>
 </html>
