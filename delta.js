@@ -12,13 +12,14 @@ var opts = {
     //use a float (0.1)
     //Currently only on windows
     delay: 0,
-
+    
     //Save shots in memory 
     saveShots: true,
  
     // [jpeg, png] support varies
     // Webcam.OutputTypes
     output: "jpeg",
+ 
  
     //Which camera to use
     //Use Webcam.list() for results
@@ -32,7 +33,25 @@ var opts = {
     //Logging
     verbose: false
 };
+ 
+ 
+//Creates webcam instance
+var Webcam = NodeWebcam.create( opts );
+ 
+ 
+//Return type with base 64 image
+var opts = {
+    callbackReturn: "base64"
+};
 
-//Also available for quick use
 NodeWebcam.capture( "esha", opts, function( err, data ) {
+    var image = "<img src='" + data + "'>";
+});
+
+var fs = require('fs');
+fs.writeFile("./sampletext.txt", fs.readFileSync('./esha.bmp', 'base64'), function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    console.log("The file was saved!");
 });
