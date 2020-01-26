@@ -25,13 +25,19 @@
        console.log(err, err.stack); // an error occurred
      } else {
        console.log(`Detected faces for: ${photo}`)
+       for (i=0; i<8; i++){
        response.FaceDetails.forEach(data => {
-         console.log("All other attributes:")
-         console.log(`  Emotions[0].Type:       ${data.Emotions[0].Type}`)
-         console.log(`  Emotions[0].Confidence: ${data.Emotions[0].Confidence}`)
-         console.log(`  Confidence:             ${data.Confidence}`)
-         console.log("------------")
-         console.log("")
+           if (data.Emotions[i].Type == "CONFUSED"){
+            console.log("All other attributes:")
+            console.log(`  Emotions[${i}].Type:       ${data.Emotions[i].Type}`)
+            console.log(`  Emotions[${i}].Confidence: ${data.Emotions[i].Confidence}`)
+            console.log(`  Confidence:             ${data.Confidence}`)
+            console.log("------------")
+            console.log("")
+           }
+         else {
+            console.log("")
+         }
        }) // for response.faceDetails
-     } // if
+     }} // if
    });
